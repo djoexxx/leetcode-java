@@ -21,6 +21,13 @@
      s consist of only digits and English letters.
 */
 public class LongestPalindromicSubstringQuestion5 {
+
+  /**
+   * Original version, brute force.
+   *
+   * @param s (String) Source string to search for palindromes.
+   * @return (String) Largest palindrome found.
+   */
   public String longestPalindrome(String s) {
     String longest = "";
 
@@ -84,6 +91,13 @@ public class LongestPalindromicSubstringQuestion5 {
     return longest;
   }
 
+  /**
+   * More efficient algorithm. Start from left side, then search for matching character from the end
+   * of the string to create substrings to check against.
+   *
+   * @param s (String) Source string to search for palindromes.
+   * @return (String) Largest palindrome found.
+   */
   public String longestPalindromeV2(String s) {
     String longest = Character.toString(s.charAt(0));
     int longestLength = longest.length();
@@ -103,13 +117,13 @@ public class LongestPalindromicSubstringQuestion5 {
 
     int pivot = 0;
     int next = s.lastIndexOf(s.charAt(pivot), s.length() - 1);
-    String tempString = s.substring(pivot, next+1);
+    String tempString = s.substring(pivot, next + 1);
     boolean isPalindrome = false;
     do {
       if (pivot == next) {
         ++pivot;
         next = s.lastIndexOf(s.charAt(pivot), s.length() - 1);
-        tempString = s.substring(pivot, next+1);
+        tempString = s.substring(pivot, next + 1);
 
         continue;
       }
@@ -124,7 +138,7 @@ public class LongestPalindromicSubstringQuestion5 {
           }
         } else {
           next = s.lastIndexOf(s.charAt(pivot), next - 1);
-          tempString = s.substring(pivot, next+1);
+          tempString = s.substring(pivot, next + 1);
 
           if (tempString.length() < longestLength) {
             next = -1;
@@ -135,9 +149,9 @@ public class LongestPalindromicSubstringQuestion5 {
       isPalindrome = false;
       ++pivot;
       next = s.lastIndexOf(s.charAt(pivot), s.length() - 1);
-      tempString = s.substring(pivot, next+1);
+      tempString = s.substring(pivot, next + 1);
 
-    } while (pivot < length-1 && pivot < length-longestLength);
+    } while (pivot < length - 1 && pivot < length - longestLength);
 
     return longest;
   }
