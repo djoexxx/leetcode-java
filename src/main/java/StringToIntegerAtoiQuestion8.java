@@ -1,5 +1,3 @@
-import java.math.BigInteger;
-
 /**
  * 8. String to Integer (atoi)
  * Medium
@@ -71,7 +69,7 @@ import java.math.BigInteger;
  *     0 <= s.length <= 200
  *     s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
  */
-public class StringToIntegerAtoi {
+public class StringToIntegerAtoiQuestion8 {
   public int myAtoi(String s) {
     long converted = 0;
     int finalInt;

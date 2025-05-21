@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class StringToIntegerAtoiTests extends StringToIntegerAtoi {
+public class StringToIntegerAtoiQuestion8Tests extends StringToIntegerAtoiQuestion8 {
 
   @Test(dataProvider = "string to int atoi")
   public void myAtoiTest(String s, int expected) {
